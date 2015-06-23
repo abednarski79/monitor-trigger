@@ -1,35 +1,12 @@
-starting db
------------
-- extract archive to C:\development\appbucket\tools\
-- locate activemq-all-5.11.0.jar in local maven repository and copy to:
-C:\development\appbucket\tools\hsqldb-2.3.2\hsqldb\lib
-- open command console cmd.exe
-- go to:
-C:\development\appbucket\tools\hsqldb-2.3.2\hsqldb
-- run:
-java -classpath lib/* org.hsqldb.server.Server
+configuration
+-------------
+Skip if you using pre-configured zip archive
+- go to project root
+- build: mvn clean install
+- copy target/*jar to lib folder in hsqldb folder
 
-
-interacting with db
--------------------
-(db must be started)
-- run C:\development\appbucket\tools\hsqldb-2.3.2\hsqldb\bin\runManagerSwing
-- set as type ...In-Memory and as url jdbc:hsqldb:hsql://localhost/testdb
-
-
-stopping db
------------
-(db must be started)
-- run C:\development\appbucket\tools\hsqldb-2.3.2\hsqldb\bin\runManagerSwing
-- set as type ...In-Memory and as url jdbc:hsqldb:hsql://localhost/testdb
-- select from menu Command -> SHUTDOWN
-
-
-configuring db:
----------------
-- compile project
-- copy target/*jar to C:\development\appbucket\tools\hsqldb-2.3.2\hsqldb\lib
-- in db console run scripts:
+sql queries to create db
+------------------------
 CREATE MEMORY TABLE PUBLIC.PERSONS(PERSONID INTEGER,LASTNAME VARCHAR(255),FIRSTNAME VARCHAR(255),ADDRESS VARCHAR(255),CITY VARCHAR(255))
 
 drop trigger persons_insert_trigger;
@@ -48,8 +25,8 @@ CREATE TRIGGER persons_update_delete BEFORE DELETE ON persons
 	FOR EACH ROW
 	CALL "eu.appbucket.monitor.trigger.PersonsTableTrigger";
 
-interaction with db:
---------------------
+sql queries to interaction with db:
+-----------------------------------
 - to insert new rows execute following queries in db console:
 INSERT INTO PERSONS VALUES(1,'l1','f1','a1','c1');
 INSERT INTO PERSONS VALUES(2,'l2','f2','a2','c2');
