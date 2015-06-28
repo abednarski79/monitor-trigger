@@ -6,7 +6,7 @@ Skip if you using pre-configured zip archive
 - copy target/*jar to lib folder in hsqldb folder
 - start hsql console and created "testdb" database
 - run following queries to create database table
-- CREATE MEMORY TABLE PUBLIC.PERSONS(PERSONID INTEGER,LASTNAME VARCHAR(255),FIRSTNAME VARCHAR(255),ADDRESS VARCHAR(255),CITY VARCHAR(255))
+ - CREATE MEMORY TABLE PUBLIC.PERSONS(PERSONID INTEGER,LASTNAME VARCHAR(255),FIRSTNAME VARCHAR(255),ADDRESS VARCHAR(255),CITY VARCHAR(255))
 - run following queries to create triggers on the table
  - drop trigger persons_insert_trigger;
  - drop trigger persons_update_trigger;
